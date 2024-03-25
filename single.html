@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 340px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 30%;
+            height: 100px;
+            outline: 1px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #38ACEC;
+        }
+        .box:hover {
+            background-color: #2A2A2A;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #38ACEC;
+        }
+
+        h2{
+            font-size: 30px;
+            color: #38ACEC;
+        }
+
+        button {
+            width: 120px;
+            height: 40px;
+            margin-top: 20px;
+            background-color: #1C1C1C !important;
+            color: #38ACEC;
+            letter-spacing: 1px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        a{
+            color: #38ACEC;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body bgcolor="#1C1C1C">
+    <div class="row">
+        <h1>TIK-TAK-TOE</h1>
+        <div class="box" id="i1" onclick="f(this)"></div>
+        <div class="box" id="i2" onclick="f(this)"></div>
+        <div class="box" id="i3" onclick="f(this)"></div>
+        <div class="box" id="i4" onclick="f(this)"></div>
+        <div class="box" id="i5" onclick="f(this)"></div>
+        <div class="box" id="i6" onclick="f(this)"></div>
+        <div class="box" id="i7" onclick="f(this)"></div>
+        <div class="box" id="i8" onclick="f(this)"></div>
+        <div class="box" id="i9" onclick="f(this)"></div>
+    </div>
+    <div class="row">
+        <button><a href="http://127.0.0.1:5500/TTT/tik-tak-toe.html">Back</a></button>
+        <button onclick="reset()">PLAY AGAIN</button>
+    </div>
+    <div class="row">
+        <h2 id="win"></h2>
+    </div>
+    
+    <script>
+        let a = 1;
+        let box = document.getElementsByClassName("box")
+        function f(n) {
+            if (document.getElementById("win").innerHTML == "") {
+                if (n.innerHTML == "") {
+                    if (a == 1) {
+                        n.innerHTML = "O";
+                        console.log("n==" + n);
+                        a = 0;
+                    } else {
+                        rr();
+                    }
+                }
+                win();
+            }
+        }
+        function rr() {
+            let num = Math.floor(Math.random() * 10);
+            for (i = 0; Infinity; i++) {
+                if (box[num].innerHTML == "") {
+                    box[num].innerHTML = "X";
+                    break;
+                } else {
+                    num = Math.floor(Math.random() * 10)
+
+                }
+            }
+        }
+        setInterval(() => {
+            if (a == 0) {
+                if (document.getElementById("win").innerHTML == "") {
+                    rr();
+                }
+                a = 1;
+            }
+            win();
+        }, 1000)
+
+        function win() {
+            var v1 = document.getElementById("i1").innerHTML;
+            var v2 = document.getElementById("i2").innerHTML;
+            var v3 = document.getElementById("i3").innerHTML;
+            var v4 = document.getElementById("i4").innerHTML;
+            var v5 = document.getElementById("i5").innerHTML;
+            var v6 = document.getElementById("i6").innerHTML;
+            var v7 = document.getElementById("i7").innerHTML;
+            var v8 = document.getElementById("i8").innerHTML;
+            var v9 = document.getElementById("i9").innerHTML;
+
+            if ((v1 == "X" && v2 == "X" && v3 == "X") || (v4 == "X" && v5 == "X" && v6 == "X") || (v7 == "X" && v8 == "X" && v9 == "X") || (v1 == "X" && v4 == "X" && v7 == "X") || (v2 == "X" && v5 == "X" && v8 == "X") || (v3 == "X" && v6 == "X" && v9 == "X") || (v1 == "X" && v5 == "X" && v9 == "X") || (v3 == "X" && v5 == "X" && v7 == "X")) {
+                document.getElementById("win").innerHTML = "X - WIN";
+            }
+
+            if ((v1 == "O" && v2 == "O" && v3 == "O") || (v4 == "O" && v5 == "O" && v6 == "O") || (v7 == "O" && v8 == "O" && v9 == "O") || (v1 == "O" && v4 == "O" && v7 == "O") || (v2 == "O" && v5 == "O" && v8 == "O") || (v3 == "O" && v6 == "O" && v9 == "O") || (v1 == "O" && v5 == "O" && v9 == "O") || (v3 == "O" && v5 == "O" && v7 == "O")) {
+                document.getElementById("win").innerHTML = "O - WIN";
+            }
+        }
+        function reset() {
+            window.location.reload();
+        }
+
+    </script>
+</body>
+
+</html>

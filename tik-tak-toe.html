@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 340px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 30%;
+            height: 100px;
+            outline: 1px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #38ACEC;
+        }
+        .box:hover {
+            background-color: #2A2A2A;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #38ACEC;
+        }
+
+        button {
+            width: 120px;
+            height: 40px;
+            margin-top: 20px;
+            background-color: #1C1C1C !important;
+            color: #38ACEC;
+            letter-spacing: 1px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        a{
+            color: #38ACEC;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body bgcolor="#1C1C1C">
+    <div class="row">
+        <h1>TIK-TAK-TOE</h1>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="row">
+        <button><a href="http://127.0.0.1:5500/TTT/single.html">Single Player</a></button>
+        <button><a href="http://127.0.0.1:5500/TTT/double.html">Double Player</a></button>
+    </div>
+</body>
+</html>
